@@ -1,0 +1,18 @@
+# basura del sistema
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# temporales y copias
+*.tar.gz
+*.zip
+*.bak
+*.tmp
+*.log
+
+# nada de entornos locales
+.env
+.env.*
+venv/
+node_modules/

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <title>jlsw.dev — blog</title>
+  <link>https://jlsw.dev/blog/</link>
+  <description>Python, Frappe/ERPNext, homelab y desarrollo web</description>
+  <language>es</language>
+    <item>
+      <title>El Googlebot que no era Google: dos semanas de registros</title>
+      <link>https://jlsw.dev/blog/el-googlebot-que-no-era-google.html</link>
+      <guid isPermaLink="true">https://jlsw.dev/blog/el-googlebot-que-no-era-google.html</guid>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+      <description>De cada cinco peticiones con nombre de robot de IA en mi servidor, cuatro venían de la misma máquina cambiando de identidad.</description>
+    </item>
+    <item>
+      <title>2.000 fotos después: por qué me hice mi propio conversor de imágenes</title>
+      <link>https://jlsw.dev/blog/por-que-hice-alixeira.html</link>
+      <guid isPermaLink="true">https://jlsw.dev/blog/por-que-hice-alixeira.html</guid>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate>
+      <description>Harto de depender de webs online para optimizar, recortar y marcar fotos al por mayor, escribí mi propia herramienta en Python. Se llama Alixeira — aligerar, en gallego — y lleva meses conmigo.</description>
+    </item>
+    <item>
+      <title>Este blog también es código: cómo está hecho</title>
+      <link>https://jlsw.dev/blog/hola-mundo.html</link>
+      <guid isPermaLink="true">https://jlsw.dev/blog/hola-mundo.html</guid>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 +0000</pubDate>
+      <description>Sin WordPress, sin CMS, sin base de datos: Markdown, un script de Python de 200 líneas y nginx. Así funciona este blog.</description>
+    </item>
+</channel></rss>

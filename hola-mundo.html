@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Este blog también es código: cómo está hecho</title>
+  <meta name="description" content="Sin WordPress, sin CMS, sin base de datos: Markdown, un script de Python de 200 líneas y nginx. Así funciona este blog.">
+  <link rel="canonical" href="https://jlsw.dev/blog/hola-mundo.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Este blog también es código: cómo está hecho">
+  <meta property="og:description" content="Sin WordPress, sin CMS, sin base de datos: Markdown, un script de Python de 200 líneas y nginx. Así funciona este blog.">
+  <meta property="og:image" content="https://jlsw.dev/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0B0E14">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://jlsw.dev/rss.xml">
+  <!-- Umami analytics (self-hosted, cookieless) -->
+  <script defer src="https://stats.jlsw.dev/script.js" data-website-id="fca495c3-3863-4756-b844-2b204f34a2fe"></script>
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="128x128">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Este blog también es código: cómo está hecho", "datePublished": "2026-08-23", "author": {"@type": "Person", "name": "José Luis Sánchez Warten", "url": "https://jlsw.dev/"}, "url": "https://jlsw.dev/blog/hola-mundo.html"}</script>
+  <style>
+    :root{--bg:#0B0E14;--bg-raise:#11151F;--border:#1D2433;--text:#E6EDF3;
+    --muted:#8B98A9;--accent:#4ADE80;--accent2:#7DD3FC;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}
+    html[data-theme="light"]{--bg:#FAFBFC;--bg-raise:#FFFFFF;--border:#E3E8EF;--text:#1B2430;
+    --muted:#5C6B7E;--accent:#15803D;--accent2:#0369A1;}
+    html{background:var(--bg);color-scheme:dark}
+    html[data-theme="light"]{color-scheme:light}
+  </style>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Principal">
+      <a class="brand" href="/" aria-label="jlsw.dev — inicio">
+        <img class="brand-logo brand-logo-dark" src="/img/logo-blanco.png?v=2" alt="&gt;_ joseluis — jlsw.dev" width="134" height="24">
+        <img class="brand-logo brand-logo-light" src="/img/logo-negro.png?v=2" alt="" aria-hidden="true" width="134" height="24">
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#proyectos">Proyectos</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#stack">Stack</a>
+        <a href="/#contacto">Contacto</a>
+        <button id="theme-toggle" class="btn-ghost" type="button" aria-label="Cambiar tema">&#9684;</button>
+      </div>
+      <button id="nav-toggle" class="btn-ghost nav-burger" type="button" aria-label="Abrir men&uacute;" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+    </nav>
+  </header>
+  <main id="main">
+<section class="container section post-article">
+  <p class="mono post-meta">$ cat blog/hola-mundo.md <span class="post-date">&middot; 23 Aug 2026</span></p>
+  <h1 class="post-title">Este blog también es código: cómo está hecho</h1>
+  <ul class="tags" aria-label="Etiquetas"><li>python</li><li>meta</li><li>estático</li></ul>
+  <div class="prose">
+<h2>La idea</h2>
+<p>Este sitio es una build estática: no hay base de datos ni panel de administración.</p>
+<p>Cada artículo es un archivo Markdown en un repositorio, y un script de Python</p>
+<p>lo convierte a HTML con el mismo diseño que el resto de la web.</p>
+<h2>Por qué sin CMS</h2>
+<ul>
+<li><strong>Velocidad</strong>: HTML plano servido por nginx. Sin consultas, sin caché que caduca.</li>
+<li><strong>Seguridad</strong>: no hay superficie de ataque de login, plugins ni actualizaciones.</li>
+<li><strong>Simplicidad</strong>: escribir un post es <code class='inline-code'>git commit</code> de un <code class='inline-code'>.md</code>.</li>
+</ul>
+<h2>El pipeline</h2>
+<p><p></p><pre class="code-block mono" data-lang="python"><code>posts = [parse_post(f) for f in sorted(POSTS.glob(&quot;*.md&quot;))]
+for p in posts:
+    (BLOG_OUT / f&quot;{p[&#x27;slug&#x27;]}.html&quot;).write_text(
+        post_page(p, md_to_html(p[&quot;body_md&quot;]))
+    )
+</code></pre></p>
+<p>El script genera además el <code class='inline-code'>rss.xml</code> y los datos estructurados JSON-LD</p>
+<p>(<code class='inline-code'>BlogPosting</code>) para SEO. Cero dependencias externas.</p>
+<p><em>Los comentarios estarán disponibles próximamente.</em></p>
+  </div>
+
+  <!-- Comments hook: Waline mount point -->
+  <section id="comentarios" class="comments-box card" aria-label="Comentarios">
+    <h2 class="mono section-title" style="margin-bottom:.9rem"><span aria-hidden="true">$ tail -f</span> comentarios</h2>
+    <div id="waline"></div>
+    <p class="muted-note">Cargando comentarios&hellip; <noscript>(se necesitan JavaScript y acceso al servidor de comentarios)</noscript></p>
+  </section>
+</section>
+<nav class="container post-nav mono" aria-label="Volver">
+  <a href="/blog/">&larr; cd ../</a>
+</nav>
+</main>
+  <footer class="site-footer">
+    <div class="container footer-inner mono">
+      <span>&copy; 2026 Jos&eacute; Luis S&aacute;nchez Warten</span>
+      <span class="footer-meta"><a href="/rss.xml">rss</a> &middot; build est&aacute;tica &middot; 0 trackers</span>
+      <a class="kofi-footer" href="https://ko-fi.com/jlswarten" rel="noopener" target="_blank">&#9749; ko-fi</a>
+    </div>
+  </footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>
