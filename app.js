@@ -26,7 +26,6 @@
  skip: 'Saltar al contenido',
  sec: { projects: 'proyectos/', certs: 'certificaciones/', contact: 'contacto.txt' },
  cm: { title: 'comentarios', loading: 'Cargando comentarios…' },
- bl: { t1: 'Commodore: la empresa que vendió 17 millones de ordenadores y murió sin enterarse', e1: 'Empecé con un Commodore 64 y seguió con un Amiga 500. Esta es la historia real de la empresa que los hizo: un superviviente del Holocausto, un imperio de chips y una quiebra que llegó por no mirar hacia dónde iba el mercado.', t2: 'El Googlebot que no era Google: dos semanas de registros', e2: 'De cada cinco peticiones con nombre de robot de IA en mi servidor, cuatro venían de la misma máquina cambiando de identidad.', t3: '2.000 fotos después: por qué me hice mi propio conversor de imágenes', e3: 'Harto de depender de webs online para optimizar, recortar y marcar fotos al por mayor, escribí mi propia herramienta en Python. Se llama Alixeira (aligerar, en gallego) y lleva meses conmigo.', t4: 'Este blog también es código: cómo está hecho', e4: 'Sin WordPress, sin CMS, sin base de datos: Markdown, un script de Python de 200 líneas y nginx. Así funciona este blog.' },
  a: { principal: 'Principal', brand: 'jlsw.dev, ir al inicio', lang: 'Cambiar idioma', theme: 'Cambiar tema', menu: 'Abrir menú', hero: 'Presentación', term: 'Terminal mostrando presentación de José Luis', tags: 'Tecnologías', etiquetas: 'Etiquetas', idioma: 'Idioma del artículo', volver: 'Volver', comentarios: 'Comentarios' },
  alt: { todomalHome: 'todomal.es, portada', todomalPost: 'todomal.es, artículo con comentarios', tfvHome: 'tamarafotoveterinaria.es, portada con portfolio', tfvPortfolio: 'tamarafotoveterinaria.es, galería del portfolio', dinoCalendar: 'DinoDieta, planificador semanal en modo oscuro', dinoRecipes: 'DinoDieta, buscador de recetas en modo claro', alixeiraRun: 'Alixeira, ventana de proceso con log y estadísticas', alixeiraConfig: 'Alixeira, pestaña de configuración' },
  'p.dino': 'Generador de dietas personalizadas sobre ERPNext: motor de reglas nutricionales, planificador semanal y seguimiento de síntomas para consulta profesional.',
@@ -75,7 +74,6 @@
  skip: 'Skip to content',
  sec: { projects: 'projects/', certs: 'certifications/', contact: 'contact.txt' },
  cm: { title: 'comments', loading: 'Loading comments…' },
- bl: { t1: 'Commodore: the company that sold 17 million computers and died without noticing', e1: 'I started with a Commodore 64 and went on to an Amiga 500. This is the real story of the company that made them: a Holocaust survivor, an empire of chips and a bankruptcy that came from not looking where the market was heading.', t2: 'The Googlebot that was not Google: two weeks of logs', e2: 'For every five requests on my server claiming to be an AI robot, four came from the same machine changing identity.', t3: '2,000 photos later: why I built my own image converter', e3: 'Tired of depending on online tools to optimise, crop and watermark photos in bulk, I wrote my own tool in Python. It is called Alixeira (to lighten, in Galician) and it has been with me for months.', t4: 'This blog is code too: how it works', e4: 'No WordPress, no CMS, no database: Markdown, a 200-line Python script and nginx. That is how this blog works.' },
  a: { principal: 'Main navigation', brand: 'jlsw.dev, go to homepage', lang: 'Change language', theme: 'Change theme', menu: 'Open menu', hero: 'Introduction', term: 'Terminal showing a presentation of Jose', tags: 'Technologies', etiquetas: 'Tags', idioma: 'Article language', volver: 'Back', comentarios: 'Comments' },
  alt: { todomalHome: 'todomal.es, homepage', todomalPost: 'todomal.es, article with comments', tfvHome: 'tamarafotoveterinaria.es, homepage with portfolio', tfvPortfolio: 'tamarafotoveterinaria.es, portfolio gallery', dinoCalendar: 'DinoDieta, weekly planner in dark mode', dinoRecipes: 'DinoDieta, recipe search in light mode', alixeiraRun: 'Alixeira, run window with log and stats', alixeiraConfig: 'Alixeira, settings tab' },
  'p.dino': 'Personalized diet generator built on ERPNext: nutritional rules engine, weekly planner and symptom tracking for professional practice.',
@@ -202,6 +200,11 @@
  const val = el.getAttribute('data-i18n-alt').split('.').reduce((acc, k) => (acc == null ? acc : acc[k]), t);
  if (typeof val === 'string') el.setAttribute('alt', val);
  });
+ // mostrar/ocultar bloques por idioma (data-i18n-show="es"|"en")
+ document.querySelectorAll('[data-i18n-show]').forEach((el) => {
+ el.hidden = el.getAttribute('data-i18n-show') !== lang;
+ });
+
  // Resolvedor genérico: data-i18n="a.b" busca primero la clave literal "a.b"
  // y si no existe, la ruta anidada t[a][b]
  document.querySelectorAll('[data-i18n]').forEach((el) => {

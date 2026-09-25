@@ -228,7 +228,7 @@ def shell(title: str, desc: str, canonical: str, jsonld: str, content: str,
       <a class="kofi-footer" href="https://ko-fi.com/jlswarten" rel="noopener" target="_blank">&#9749; ko-fi</a>
     </div>
   </footer>
-  <script src="/app.js?v=18" defer></script>
+  <script src="/app.js?v=19" defer></script>
 </body>
 </html>
 """
@@ -292,6 +292,17 @@ def post_page(p: dict, body_html: str) -> str:
                  content, og_block(*og_for_post(p)))
 
 
+def _bilingual(tag: str, cls: str, es: str, en: str) -> str:
+    """Fila bilingüe del listado. Si el post no trae EN, el texto va sin
+    atributo: así no se esconde en modo inglés (no hay versión que mostrar)."""
+    attr = ' data-i18n-show="es"' if en else ""
+    out = f'<{tag} class="{cls}"{attr}>{html.escape(es)}</{tag}>'
+    if en:
+        out += (f'\n        <{tag} class="{cls}" data-i18n-show="en" lang="en" hidden>'
+                f'{html.escape(en)}</{tag}>')
+    return out
+
+
 def blog_index(posts: list[dict]) -> str:
     rows = []
     for i, p in enumerate(sorted(posts, key=lambda x: x["date"], reverse=True), 1):
@@ -300,8 +311,8 @@ def blog_index(posts: list[dict]) -> str:
     <li class="card post-row">
       <a class="post-row-link" href="/blog/{p['slug']}.html">
         <span class="mono post-meta">$ cat blog/{p['slug']}.md</span>
-        <h2 class="post-title-sm" data-i18n="bl.t{i}">{html.escape(p['title'])}</h2>
-        <p class="post-excerpt" data-i18n="bl.e{i}">{html.escape(p['excerpt'])}</p>
+        {_bilingual('h2', 'post-title-sm', p['title'], p.get('title_en', ''))}
+        {_bilingual('p', 'post-excerpt', p['excerpt'], p.get('excerpt_en', ''))}
         <span class="mono post-date">{date_fmt}</span>
       </a>
     </li>""")
