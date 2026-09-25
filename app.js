@@ -24,6 +24,11 @@
  footerNote: 'hecha a mano',
  kofiHint: 'invítame a uno si te sirvió de algo',
  skip: 'Saltar al contenido',
+ sec: { projects: 'proyectos/', certs: 'certificaciones/', contact: 'contacto.txt' },
+ cm: { title: 'comentarios', loading: 'Cargando comentarios…' },
+ bl: { t1: 'Commodore: la empresa que vendió 17 millones de ordenadores y murió sin enterarse', e1: 'Empecé con un Commodore 64 y seguió con un Amiga 500. Esta es la historia real de la empresa que los hizo: un superviviente del Holocausto, un imperio de chips y una quiebra que llegó por no mirar hacia dónde iba el mercado.', t2: 'El Googlebot que no era Google: dos semanas de registros', e2: 'De cada cinco peticiones con nombre de robot de IA en mi servidor, cuatro venían de la misma máquina cambiando de identidad.', t3: '2.000 fotos después: por qué me hice mi propio conversor de imágenes', e3: 'Harto de depender de webs online para optimizar, recortar y marcar fotos al por mayor, escribí mi propia herramienta en Python. Se llama Alixeira (aligerar, en gallego) y lleva meses conmigo.', t4: 'Este blog también es código: cómo está hecho', e4: 'Sin WordPress, sin CMS, sin base de datos: Markdown, un script de Python de 200 líneas y nginx. Así funciona este blog.' },
+ a: { principal: 'Principal', brand: 'jlsw.dev, ir al inicio', lang: 'Cambiar idioma', theme: 'Cambiar tema', menu: 'Abrir menú', hero: 'Presentación', term: 'Terminal mostrando presentación de José Luis', tags: 'Tecnologías', etiquetas: 'Etiquetas', idioma: 'Idioma del artículo', volver: 'Volver', comentarios: 'Comentarios' },
+ alt: { todomalHome: 'todomal.es, portada', todomalPost: 'todomal.es, artículo con comentarios', tfvHome: 'tamarafotoveterinaria.es, portada con portfolio', tfvPortfolio: 'tamarafotoveterinaria.es, galería del portfolio', dinoCalendar: 'DinoDieta, planificador semanal en modo oscuro', dinoRecipes: 'DinoDieta, buscador de recetas en modo claro', alixeiraRun: 'Alixeira, ventana de proceso con log y estadísticas', alixeiraConfig: 'Alixeira, pestaña de configuración' },
  'p.dino': 'Generador de dietas personalizadas sobre ERPNext: motor de reglas nutricionales, planificador semanal y seguimiento de síntomas para consulta profesional.',
  'p.todomal': 'Blog con backend propio en Frappe, sin WordPress: DocTypes a medida, API REST y cero plugins de terceros. Gestionado por una IA sarcástica y brutalista.',
  'p.tfv': 'Web de una fotógrafa y veterinaria de Monforte de Lemos: portfolio, blog, exposiciones y área de clientes, SPA sobre Frappe con Vue, instalable como PWA.',
@@ -33,7 +38,7 @@
  'foot.download': 'Descargar',
  'foot.repo': 'Repositorio',
  'foot.story': 'La historia',
- shots: { open: 'Ver captura', close: 'Cerrar', todomalHome: 'todomal.es (portada', todomalPost: 'todomal.es) artículo con comentarios', tfvHome: 'tamarafotoveterinaria.es (portada con portfolio', tfvPortfolio: 'tamarafotoveterinaria.es) galería del portfolio', dinoCalendar: 'DinoDieta (planificador semanal en modo oscuro', dinoRecipes: 'DinoDieta) buscador de recetas en modo claro', alixeiraRun: 'Alixeira (proceso completado con estadísticas', alixeiraConfig: 'Alixeira) opciones de configuración' },
+ shots: { open: 'Ver captura', close: 'Cerrar', todomalHome: 'todomal.es (portada)', todomalPost: 'todomal.es (artículo con comentarios)', tfvHome: 'tamarafotoveterinaria.es (portada con portfolio)', tfvPortfolio: 'tamarafotoveterinaria.es (galería del portfolio)', dinoCalendar: 'DinoDieta (planificador semanal en modo oscuro)', dinoRecipes: 'DinoDieta (buscador de recetas en modo claro)', alixeiraRun: 'Alixeira (proceso completado con estadísticas)', alixeiraConfig: 'Alixeira (opciones de configuración)' },
  st: { lang: 'Lenguajes', framework: 'Framework', data: 'Datos', infra: 'Infraestructura', backups: 'Backups automatizados', ai: 'IA' },
  about: {
  p1: 'Llevo 4 años programando en producción con Python y el framework Frappe/ERPNext: desde motores de negocio hasta paneles de control con Vue. Durante ese tiempo he administrado también Bold BI (la solución de Business Intelligence de Syncfusion): dashboards corporativos, conexiones a datos y automatización de informes. Antes de eso, casi una década resolviendo problemas de clientes cara a cara, algo que se nota en cómo escribo software: para personas, no solo para máquinas. Cuento con la certificación oficial de Frappe Framework.',
@@ -68,6 +73,11 @@
  footerNote: 'handcrafted',
  kofiHint: 'buy me one if this was useful',
  skip: 'Skip to content',
+ sec: { projects: 'projects/', certs: 'certifications/', contact: 'contact.txt' },
+ cm: { title: 'comments', loading: 'Loading comments…' },
+ bl: { t1: 'Commodore: the company that sold 17 million computers and died without noticing', e1: 'I started with a Commodore 64 and went on to an Amiga 500. This is the real story of the company that made them: a Holocaust survivor, an empire of chips and a bankruptcy that came from not looking where the market was heading.', t2: 'The Googlebot that was not Google: two weeks of logs', e2: 'For every five requests on my server claiming to be an AI robot, four came from the same machine changing identity.', t3: '2,000 photos later: why I built my own image converter', e3: 'Tired of depending on online tools to optimise, crop and watermark photos in bulk, I wrote my own tool in Python. It is called Alixeira (to lighten, in Galician) and it has been with me for months.', t4: 'This blog is code too: how it works', e4: 'No WordPress, no CMS, no database: Markdown, a 200-line Python script and nginx. That is how this blog works.' },
+ a: { principal: 'Main navigation', brand: 'jlsw.dev, go to homepage', lang: 'Change language', theme: 'Change theme', menu: 'Open menu', hero: 'Introduction', term: 'Terminal showing a presentation of Jose', tags: 'Technologies', etiquetas: 'Tags', idioma: 'Article language', volver: 'Back', comentarios: 'Comments' },
+ alt: { todomalHome: 'todomal.es, homepage', todomalPost: 'todomal.es, article with comments', tfvHome: 'tamarafotoveterinaria.es, homepage with portfolio', tfvPortfolio: 'tamarafotoveterinaria.es, portfolio gallery', dinoCalendar: 'DinoDieta, weekly planner in dark mode', dinoRecipes: 'DinoDieta, recipe search in light mode', alixeiraRun: 'Alixeira, run window with log and stats', alixeiraConfig: 'Alixeira, settings tab' },
  'p.dino': 'Personalized diet generator built on ERPNext: nutritional rules engine, weekly planner and symptom tracking for professional practice.',
  'p.todomal': 'Blog running on its own Frappe backend, no WordPress: custom DocTypes, REST API and zero third-party plugins. Run by a sarcastic, brutalist AI.',
  'p.tfv': 'Website for a photographer & veterinarian: portfolio, blog, exhibitions and a client area, a Frappe + Vue SPA, installable as a PWA.',
@@ -77,7 +87,7 @@
  'foot.download': 'Download',
  'foot.repo': 'Repository',
  'foot.story': 'The story',
- shots: { open: 'View screenshot', close: 'Close', todomalHome: 'todomal.es (homepage', todomalPost: 'todomal.es) article with comments', tfvHome: 'tamarafotoveterinaria.es (homepage with portfolio', tfvPortfolio: 'tamarafotoveterinaria.es) portfolio gallery', dinoCalendar: 'DinoDieta (weekly planner in dark mode', dinoRecipes: 'DinoDieta) recipe search in light mode', alixeiraRun: 'Alixeira (completed run with stats', alixeiraConfig: 'Alixeira) configuration options' },
+ shots: { open: 'View screenshot', close: 'Close', todomalHome: 'todomal.es (homepage)', todomalPost: 'todomal.es (article with comments)', tfvHome: 'tamarafotoveterinaria.es (homepage with portfolio)', tfvPortfolio: 'tamarafotoveterinaria.es (portfolio gallery)', dinoCalendar: 'DinoDieta (weekly planner in dark mode)', dinoRecipes: 'DinoDieta (recipe search in light mode)', alixeiraRun: 'Alixeira (completed run with stats)', alixeiraConfig: 'Alixeira (configuration options)' },
  st: { lang: 'Languages', framework: 'Framework', data: 'Data', infra: 'Infrastructure', backups: 'Automated backups', ai: 'AI' },
  about: {
  p1: 'I have 4 years of production experience programming with Python and the Frappe/ERPNext framework: from business logic engines to Vue dashboards. During that time I have also administered Bold BI (Syncfusion\u2019s Business Intelligence suite): corporate dashboards, data connections and report automation. Before that, nearly a decade solving customer problems face to face, something that shows in how I write software: for people, not just machines. I hold the official Frappe Framework certification.',
@@ -99,6 +109,7 @@
  };
 
  let lang = localStorage.getItem('lang') || 'es';
+ let setPostLang = null; // en artículos: cambia también el bloque ES/EN
 
  /* ── Theme (dark default, respects system on first visit) ── */
  const root = document.documentElement;
@@ -186,6 +197,11 @@
  const val = el.getAttribute('data-i18n-aria').split('.').reduce((acc, k) => (acc == null ? acc : acc[k]), t);
  if (typeof val === 'string') el.setAttribute('aria-label', val);
  });
+ // alt traducible de capturas (data-i18n-alt="alt.x")
+ document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+ const val = el.getAttribute('data-i18n-alt').split('.').reduce((acc, k) => (acc == null ? acc : acc[k]), t);
+ if (typeof val === 'string') el.setAttribute('alt', val);
+ });
  // Resolvedor genérico: data-i18n="a.b" busca primero la clave literal "a.b"
  // y si no existe, la ruta anidada t[a][b]
  document.querySelectorAll('[data-i18n]').forEach((el) => {
@@ -209,6 +225,7 @@
  lang = lang === 'es' ? 'en' : 'es';
  localStorage.setItem('lang', lang);
  applyLang();
+ if (setPostLang) setPostLang(lang);
  });
 
  /* ── Certificaciones: desplegable (se abre al llegar con #certificaciones) ── */
@@ -253,7 +270,7 @@ if (certDetails) {
  init({
  el: '#waline',
  serverURL: 'https://jlsw.dev/waline',
- lang: 'es',
+ lang: lang === 'en' ? 'en-US' : 'es',
  path: location.pathname,
  reaction: true,
  dark: "[data-theme='dark']",
@@ -341,7 +358,7 @@ if (certDetails) {
  if (postLangs.length) {
  const bloques = document.querySelectorAll('[data-lang-block]');
  const titulos = document.querySelectorAll('[data-lang-title]');
- const setPostLang = (L) => {
+ setPostLang = (L) => {
    bloques.forEach((b) => { b.hidden = b.getAttribute('data-lang-block') !== L; });
    titulos.forEach((h) => { h.hidden = h.getAttribute('data-lang-title') !== L; });
    postLangs.forEach((a) => a.classList.toggle('is-active', a.getAttribute('data-lang') === L));
@@ -351,7 +368,11 @@ if (certDetails) {
  };
  postLangs.forEach((a) => a.addEventListener('click', (e) => {
    e.preventDefault();
-   setPostLang(a.getAttribute('data-lang'));
+   const L = a.getAttribute('data-lang');
+   lang = L;
+   localStorage.setItem('lang', L);
+   applyLang();
+   setPostLang(L);
  }));
  // arrancar en el idioma que el visitante tenga elegido en el resto del sitio
  setPostLang(localStorage.getItem('lang') === 'en' ? 'en' : 'es');

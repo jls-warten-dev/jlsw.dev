@@ -29,14 +29,14 @@
     html{background:var(--bg);color-scheme:dark}
     html[data-theme="light"]{color-scheme:light}
   </style>
-  <link rel="stylesheet" href="/styles.css?v=7">
+  <link rel="stylesheet" href="/styles.css?v=10">
 </head>
 <body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
   <header class="site-header">
-    <nav class="nav container" aria-label="Principal">
-      <a class="brand" href="/" aria-label="jlsw.dev — inicio">
-        <img class="brand-logo brand-logo-dark" src="/img/logo-blanco.png?v=2" alt="&gt;_ joseluis — jlsw.dev" width="134" height="24">
+    <nav class="nav container" data-i18n-aria="a.principal">
+      <a class="brand" href="/" data-i18n-aria="a.brand">
+        <img class="brand-logo brand-logo-dark" src="/img/logo-blanco.png?v=2" alt="&gt;_ joseluis - jlsw.dev" width="134" height="24">
         <img class="brand-logo brand-logo-light" src="/img/logo-negro.png?v=2" alt="" aria-hidden="true" width="134" height="24">
       </a>
       <div class="nav-links" id="nav-links">
@@ -44,17 +44,24 @@
         <a href="/blog/">Blog</a>
         <a href="/#stack">Stack</a>
         <a href="/#contacto">Contacto</a>
-        <button id="theme-toggle" class="btn-ghost" type="button" aria-label="Cambiar tema">&#9684;</button>
+        <button id="lang-toggle" class="btn-ghost mono" type="button" data-i18n-aria="a.lang">EN</button>
+        <button id="theme-toggle" class="btn-ghost" type="button" data-i18n-aria="a.theme">&#9684;</button>
       </div>
-      <button id="nav-toggle" class="btn-ghost nav-burger" type="button" aria-label="Abrir men&uacute;" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+      <button id="nav-toggle" class="btn-ghost nav-burger" type="button" data-i18n-aria="a.menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
     </nav>
   </header>
   <main id="main">
 <section class="container section post-article">
   <p class="mono post-meta">$ cat blog/el-googlebot-que-no-era-google.md <span class="post-date">&middot; 13 Sep 2026</span></p>
-  <h1 class="post-title">El Googlebot que no era Google: dos semanas de registros</h1>
-  <ul class="tags" aria-label="Etiquetas"><li>nginx</li><li>servidor</li><li>seguridad</li><li>registros</li></ul>
-  <div class="prose">
+  <h1 class="post-title" data-lang-title="es">El Googlebot que no era Google: dos semanas de registros</h1>
+  <h1 class="post-title" data-lang-title="en" lang="en" hidden>The Googlebot that was not Google: two weeks of logs</h1>
+  <ul class="tags" data-i18n-aria="a.etiquetas"><li>nginx</li><li>servidor</li><li>seguridad</li><li>registros</li></ul>
+  <p class="mono lang-switch" role="group" data-i18n-aria="a.idioma">
+    <span aria-hidden="true">$</span>
+    <a href="#es" id="lang-es" class="lang-link is-active" data-lang="es">es</a>
+    <a href="#en" id="lang-en" class="lang-link" data-lang="en">en</a>
+  </p>
+  <div class="prose" id="es" lang="es" data-lang-block="es">
 <h2>Por qué miré los registros</h2>
 <p>En el servidor donde vive esta web vive también otra que llevo para un negocio de mi familia. Y ahí estaba el primer problema, antes de mirar nada: las dos compartían un único fichero de registro, y <strong>86.608 de sus 113.941 líneas eran ilegibles</strong>. No rotas: escritas con un formato que no se puede leer, porque cada web declara el suyo y algunas lo declaran mal.</p>
 <p>Sin eso arreglado, cualquier cifra por web es humo. Así que lo primero fue dar a cada web su propio registro. A partir de ahí, ya se puede medir.</p>
@@ -62,12 +69,12 @@
 <p>En las líneas que sí se pueden leer, entre el 30 de agosto y el 13 de septiembre hay <strong>8.348 peticiones de escaneo</strong>: 853 direcciones distintas pedidas desde 431 direcciones IP distintas. Nadie busca tu contenido: buscan ficheros que no deberían estar ahí.</p>
 <p>Lo más pedido:</p>
 <ul>
-<li><code class='inline-code'>/.env</code> — 100 veces</li>
-<li><code class='inline-code'>/wp-login.php</code> — 98</li>
-<li><code class='inline-code'>/.git/config</code> — 88</li>
-<li><code class='inline-code'>/.env.local</code>, <code class='inline-code'>/.env.production</code>, <code class='inline-code'>/.env.bak</code>, <code class='inline-code'>/.env.backup</code>… — entre 30 y 40 cada uno</li>
-<li><code class='inline-code'>/xmlrpc.php</code> — 28</li>
-<li><code class='inline-code'>/.git/HEAD</code> — 26</li>
+<li><code class='inline-code'>/.env</code>, 100 veces</li>
+<li><code class='inline-code'>/wp-login.php</code>, 98</li>
+<li><code class='inline-code'>/.git/config</code>, 88</li>
+<li><code class='inline-code'>/.env.local</code>, <code class='inline-code'>/.env.production</code>, <code class='inline-code'>/.env.bak</code>, <code class='inline-code'>/.env.backup</code>..., entre 30 y 40 cada uno</li>
+<li><code class='inline-code'>/xmlrpc.php</code>, 28</li>
+<li><code class='inline-code'>/.git/HEAD</code>, 26</li>
 </ul>
 <p>El patrón es claro: ficheros de configuración, credenciales, y las puertas conocidas de WordPress. Ninguno de esos ficheros existe en esta web.</p>
 <h2>Siete brotes</h2>
@@ -81,21 +88,21 @@
 <p>Lo que llama la atención no es el volumen: es que <strong>cada petición de la ráfaga llega con un navegador distinto</strong>. Esa primera IP usó 405 identificaciones diferentes en 66 segundos. La segunda, 400. Es la misma máquina cambiándose de careta en cada intento.</p>
 <p>Y no pedían cualquier cosa:</p>
 <ul>
-<li><code class='inline-code'>/@fs/proc/self/environ</code> — el truco de leer ficheros del sistema a través del servidor de desarrollo de Vite</li>
+<li><code class='inline-code'>/@fs/proc/self/environ</code>, el truco de leer ficheros del sistema a través del servidor de desarrollo de Vite</li>
 <li><code class='inline-code'>/@fs/etc/passwd?import&amp;raw??</code></li>
-<li><code class='inline-code'>/static../.env</code>, <code class='inline-code'>/media../.env</code> — saltarse el filtro colando el salto de carpeta dentro de una ruta con pinta de fichero estático</li>
-<li><code class='inline-code'>/fetch?url=http://169.254.169.254/latest/meta-data/iam/...</code> — la dirección que en las máquinas de AWS devuelve las credenciales del servidor</li>
+<li><code class='inline-code'>/static../.env</code>, <code class='inline-code'>/media../.env</code>, saltarse el filtro colando el salto de carpeta dentro de una ruta con pinta de fichero estático</li>
+<li><code class='inline-code'>/fetch?url=http://169.254.169.254/latest/meta-data/iam/...</code>, la dirección que en las máquinas de AWS devuelve las credenciales del servidor</li>
 <li><code class='inline-code'>/aws/credentials</code>, <code class='inline-code'>/.aws/credentials</code>, <code class='inline-code'>/.git-credentials</code>, <code class='inline-code'>/.azure/credentials</code></li>
 <li><code class='inline-code'>/download?file=../../../../etc/passwd</code>, <code class='inline-code'>/read?url=file:///proc/self/environ</code></li>
-<li><code class='inline-code'>/__aws_leak_probe_50b21472__</code> — una ruta con nombre propio y un número distinto en cada brote</li>
+<li><code class='inline-code'>/__aws_leak_probe_50b21472__</code>, una ruta con nombre propio y un número distinto en cada brote</li>
 </ul>
 <h2>El disfraz</h2>
 <p>Aquí está el hallazgo que no esperaba. En esos mismos registros conté 2.226 peticiones con el nombre de un robot de inteligencia artificial: GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, Amazonbot, Applebot, Bytespider, Google-Extended.</p>
 <p><strong>1.854 de ellas, el 83%, salieron de los siete brotes.</strong> No era OpenAI leyendo mis páginas. Era una máquina alquilada por horas cambiando de nombre en cada petición.</p>
 <p>En crudo se ve mejor que explicado:</p>
 <p><p></p><pre class="code-block mono" data-lang=""><code>35.204.202.xxx - - [13/Sep/2026:04:19:19 +0000]
-  &quot;GET /__aws_leak_probe_50b21472__ HTTP/1.1&quot; 301 178
-  &quot;Mozilla/5.0 (compatible; OAI-SearchBot/1.4; robots.txt; +https://openai.com/searchbot)&quot;
+ &quot;GET /__aws_leak_probe_50b21472__ HTTP/1.1&quot; 301 178
+ &quot;Mozilla/5.0 (compatible; OAI-SearchBot/1.4; robots.txt; +https://openai.com/searchbot)&quot;
 </code></pre></p>
 <p>Hasta el detalle del <code class='inline-code'>robots.txt</code> que OpenAI documenta para sus lecturas de <code class='inline-code'>robots.txt</code> está copiado. Lo que no está copiado es la dirección: pidiendo <code class='inline-code'>/.env</code> y credenciales de AWS no hay ninguna razón para llevar el nombre de OpenAI.</p>
 <h2>Google, esta vez sí</h2>
@@ -118,42 +125,123 @@
 <h2>Y la rareza</h2>
 <p>Hay una petición que no encaja en ninguna de las categorías anteriores. Durante dos semanas, algo que sale por direcciones de Cloudflare ha pedido <code class='inline-code'>/wp-admin/install.php?step=1</code> <strong>2.154 veces</strong>, unas 150 al día, siempre la misma ruta, y con el campo del navegador puesto a la propia dirección:</p>
 <p><p></p><pre class="code-block mono" data-lang=""><code>104.23.221.xxx - - [13/Sep/2026:01:27:15 +0000]
-  &quot;GET /wp-admin/install.php?step=1 HTTP/1.1&quot; 301 178 &quot;-&quot;
-  &quot;http://jlsw.dev/wp-admin/install.php?step=1&quot;
+ &quot;GET /wp-admin/install.php?step=1 HTTP/1.1&quot; 301 178 &quot;-&quot;
+ &quot;http://jlsw.dev/wp-admin/install.php?step=1&quot;
 </code></pre></p>
 <p>No sé quién hay detrás. Sé que esta web no es WordPress y que ahí no hay nada que encontrar.</p>
 <h2>Cómo saber si un robot es de verdad</h2>
-<p>La lección es corta: <strong>el nombre no vale, la dirección sí</strong>. Un nombre de navegador o de robot se escribe en una línea y no cuesta nada; la dirección IP desde la que llega, no. Google publica sus rangos y el patrón de DNS inverso (<code class='inline-code'>crawl-…​.googlebot.com</code>) para comprobarlo en dos comandos[1], y OpenAI publica los suyos y explica el marcador de <code class='inline-code'>robots.txt</code>[2].</p>
+<p>La lección es corta: <strong>el nombre no vale, la dirección sí</strong>. Un nombre de navegador o de robot se escribe en una línea y no cuesta nada; la dirección IP desde la que llega, no. Google publica sus rangos y el patrón de DNS inverso (<code class='inline-code'>crawl-...​.googlebot.com</code>) para comprobarlo en dos comandos[1], y OpenAI publica los suyos y explica el marcador de <code class='inline-code'>robots.txt</code>[2].</p>
 <p>La comprobación es esta:</p>
-<p><p></p><pre class="code-block mono" data-lang=""><code>35.204.202.xxx  -&gt; xxx.202.204.35.bc.googleusercontent.com
-66.249.75.xxx   -&gt; crawl-66-249-75-xxx.googlebot.com
+<p><p></p><pre class="code-block mono" data-lang=""><code>35.204.202.xxx -&gt; xxx.202.204.35.bc.googleusercontent.com
+66.249.75.xxx -&gt; crawl-66-249-75-xxx.googlebot.com
 </code></pre></p>
-<p>La primera está en Google Cloud: es una máquina virtual que cualquiera alquila por horas. La segunda es Google. Y las dos dicen «Google» cuando piden algo.</p>
+<p>La primera está en Google Cloud: es una máquina virtual que cualquiera alquila por horas. La segunda es Google. Y las dos dicen &quot;Google&quot; cuando piden algo.</p>
 <h2>Lo que me llevo</h2>
 <p>Nada estaba expuesto, y no había ninguna brecha: lo que hay es muchísimo ruido, y un puñado de sitios donde la aplicación se comporta mal (esos dos 500). Ahora cada web tiene su propio registro, así que la próxima vez que mire esto, las cifras serán de una sola web y no del servidor entero. Se puede medir mejor, también esto.</p>
 <p>Si tienes una web, mira tu registro. Casi seguro que ese Googlebot que te visita no es Google.</p>
 <h2>Referencias</h2>
-<p>1. Google — <em>Verify requests from Google crawlers and fetchers</em>: https://developers.google.com/search/docs/crawling-indexing/verifying-googlebot 2. OpenAI — <em>Overview of OpenAI Crawlers</em>: https://platform.openai.com/docs/gptbot</p>
+<p>1. Google, <em>Verify requests from Google crawlers and fetchers</em>: https://developers.google.com/search/docs/crawling-indexing/verifying-googlebot 2. OpenAI, <em>Overview of OpenAI Crawlers</em>: https://platform.openai.com/docs/gptbot</p>
+  </div>
+  <div class="prose" id="en" lang="en" data-lang-block="en" hidden>
+<h2>Why I looked at the logs</h2>
+<p>The server where this site lives also hosts another one I run for a family business. And there was the first problem, before looking at anything: the two shared a single log file, and <strong>86,608 of its 113,941 lines were unreadable</strong>. Not corrupt: written in a format that cannot be read, because every site declares its own and some declare it badly.</p>
+<p>Without fixing that, any figure per site is smoke. So the first thing was giving each site its own log. From there on, you can actually measure.</p>
+<h2>What shows up as soon as you look</h2>
+<p>In the lines that can be read, between 30 August and 13 September there are <strong>8,348 scanning requests</strong>: 853 different addresses requested from 431 different IP addresses. Nobody is looking for your content: they are looking for files that should not be there.</p>
+<p>The most requested:</p>
+<ul>
+<li><code class='inline-code'>/.env</code>, 100 times</li>
+<li><code class='inline-code'>/wp-login.php</code>, 98</li>
+<li><code class='inline-code'>/.git/config</code>, 88</li>
+<li><code class='inline-code'>/.env.local</code>, <code class='inline-code'>/.env.production</code>, <code class='inline-code'>/.env.bak</code>, <code class='inline-code'>/.env.backup</code>..., between 30 and 40 each</li>
+<li><code class='inline-code'>/xmlrpc.php</code>, 28</li>
+<li><code class='inline-code'>/.git/HEAD</code>, 26</li>
+</ul>
+<p>The pattern is clear: configuration files, credentials, and the well known WordPress doors. None of those files exist on this site.</p>
+<h2>Seven bursts</h2>
+<p>And then there is what made me sit down and write this. Seven IP addresses that do not scan like the others: <strong>they go in hard for a minute and leave</strong>. Between the seven of them they add up to 4,213 requests.</p>
+<ul>
+<li><strong>35.204.202.xxx</strong>: 675 requests in 66 seconds, on 13 September at 4:19 in the morning.</li>
+<li><strong>34.21.79.xxx</strong>: 643 requests in a single minute, on 7 September.</li>
+<li><strong>34.73.253.xxx</strong>, <strong>35.234.1.xxx</strong>, <strong>35.229.84.xxx</strong>, <strong>34.90.79.xxx</strong>, <strong>34.182.214.xxx</strong>: between 423 and 643 each, always in bursts of under two minutes.</li>
+</ul>
+<p><em>(The addresses have their last number masked, here and throughout the article: the data that matters is the range they come from, not the exact machine.)</em></p>
+<p>What stands out is not the volume: it is that <strong>every request in the burst arrives with a different browser</strong>. That first IP used 405 different identifications in 66 seconds. The second one, 400. It is the same machine changing masks on every attempt.</p>
+<p>And they were not asking for just anything:</p>
+<ul>
+<li><code class='inline-code'>/@fs/proc/self/environ</code>, the trick of reading system files through the Vite development server</li>
+<li><code class='inline-code'>/@fs/etc/passwd?import&amp;raw??</code></li>
+<li><code class='inline-code'>/static../.env</code>, <code class='inline-code'>/media../.env</code>, slipping past the filter by hiding the directory jump inside a path that looks like a static file</li>
+<li><code class='inline-code'>/fetch?url=http://169.254.169.254/latest/meta-data/iam/...</code>, the address that on AWS machines returns the server credentials</li>
+<li><code class='inline-code'>/aws/credentials</code>, <code class='inline-code'>/.aws/credentials</code>, <code class='inline-code'>/.git-credentials</code>, <code class='inline-code'>/.azure/credentials</code></li>
+<li><code class='inline-code'>/download?file=../../../../etc/passwd</code>, <code class='inline-code'>/read?url=file:///proc/self/environ</code></li>
+<li><code class='inline-code'>/__aws_leak_probe_50b21472__</code>, a path with its own name and a different number in every burst</li>
+</ul>
+<h2>The disguise</h2>
+<p>Here is the finding I was not expecting. In those same logs I counted 2,226 requests bearing the name of an artificial intelligence robot: GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, Amazonbot, Applebot, Bytespider, Google-Extended.</p>
+<p><strong>1,854 of them, 83%, came from the seven bursts.</strong> It was not OpenAI reading my pages. It was a machine rented by the hour changing its name on every request.</p>
+<p>It reads better raw than explained:</p>
+<p><p></p><pre class="code-block mono" data-lang=""><code>35.204.202.xxx - - [13/Sep/2026:04:19:19 +0000]
+ &quot;GET /__aws_leak_probe_50b21472__ HTTP/1.1&quot; 301 178
+ &quot;Mozilla/5.0 (compatible; OAI-SearchBot/1.4; robots.txt; +https://openai.com/searchbot)&quot;
+</code></pre></p>
+<p>Even the <code class='inline-code'>robots.txt</code> detail that OpenAI documents for its <code class='inline-code'>robots.txt</code> reads is copied. What is not copied is the address: asking for <code class='inline-code'>/.env</code> and AWS credentials there is no reason whatsoever to carry OpenAI&#x27;s name.</p>
+<h2>Google, this time yes</h2>
+<p>With Google it is easier, because it can be checked. In those two weeks there were 226 requests claiming to be Googlebot.</p>
+<ul>
+<li><strong>171</strong> came from the <code class='inline-code'>66.249.x</code> range, from 45 different addresses.</li>
+<li>And their reverse DNS confirms it: <code class='inline-code'>66.249.75.xxx</code> resolves to <code class='inline-code'>crawl-66-249-75-xxx.googlebot.com</code>, which is the pattern Google publishes[1].</li>
+<li>The other <strong>55</strong> arrived from addresses outside Google. Of those, 28 came asking for <code class='inline-code'>/.env</code> and friends.</li>
+</ul>
+<p>That is: the name Googlebot was Google 75% of the time. The names of the AI robots, almost never.</p>
+<h2>What they got away with</h2>
+<p>Nothing. Out of those 8,348 requests:</p>
+<ul>
+<li><strong>3,904</strong> received a 404. No file existed.</li>
+<li><strong>4,393</strong> received a 301: they came in over HTTP to the IP address and were sent to HTTPS, so they never got to ask the application for anything.</li>
+<li><strong>12</strong> received a 200, and none of the twelve is a leak: ten are Let&#x27;s Encrypt validations (the normal routine every time the certificate is renewed) and two are the client area page, which answers <code class='inline-code'>/portal/.env</code> with its own page. I checked it just now: 2,291 bytes of HTML, not a credentials file.</li>
+<li><strong>2</strong> received a 500, and those two do interest me: <code class='inline-code'>/dashboard/.env</code> and <code class='inline-code'>/dashboard%2F.env</code> make the application fail instead of answering 404. It is a small fault and I am going to fix it, but it is exactly the kind of detail you do not see unless you look at the logs.</li>
+</ul>
+<p>Everything they asked for, checked today by hand and over HTTPS, answers 404 on both sites.</p>
+<h2>And the oddity</h2>
+<p>There is one request that does not fit any of the previous categories. For two weeks, something coming out of Cloudflare addresses has asked for <code class='inline-code'>/wp-admin/install.php?step=1</code> <strong>2,154 times</strong>, about 150 a day, always the same path, and with the browser field set to the address itself:</p>
+<p><p></p><pre class="code-block mono" data-lang=""><code>104.23.221.xxx - - [13/Sep/2026:01:27:15 +0000]
+ &quot;GET /wp-admin/install.php?step=1 HTTP/1.1&quot; 301 178 &quot;-&quot;
+ &quot;http://jlsw.dev/wp-admin/install.php?step=1&quot;
+</code></pre></p>
+<p>I do not know who is behind it. I do know this site is not WordPress and there is nothing to find there.</p>
+<h2>How to tell whether a bot is real</h2>
+<p>The lesson is short: <strong>the name is worthless, the address is what counts</strong>. A browser or bot name is written in one line and costs nothing; the IP address it arrives from does not. Google publishes its ranges and the reverse DNS pattern (<code class='inline-code'>crawl-....googlebot.com</code>) to check it in two commands[1], and OpenAI publishes its own and explains the <code class='inline-code'>robots.txt</code> token[2].</p>
+<p>The check is this:</p>
+<p><p></p><pre class="code-block mono" data-lang=""><code>35.204.202.xxx -&gt; xxx.202.204.35.bc.googleusercontent.com
+66.249.75.xxx -&gt; crawl-66-249-75-xxx.googlebot.com
+</code></pre></p>
+<p>The first one is on Google Cloud: it is a virtual machine anyone can rent by the hour. The second is Google. And both say &quot;Google&quot; when they ask for something.</p>
+<h2>What I take away</h2>
+<p>Nothing was exposed, and there was no breach: what there is is an enormous amount of noise, and a handful of places where the application behaves badly (those two 500s). Now each site has its own log, so the next time I look at this the figures will be for a single site and not the whole server. This can be measured better too.</p>
+<p>If you have a website, look at your log. Almost certainly that Googlebot visiting you is not Google.</p>
+<h2>References</h2>
+<p>1. Google, <em>Verify requests from Google crawlers and fetchers</em>: https://developers.google.com/search/docs/crawling-indexing/verifying-googlebot 2. OpenAI, <em>Overview of OpenAI Crawlers</em>: https://platform.openai.com/docs/gptbot</p>
   </div>
 
   <!-- Comments hook: Waline mount point -->
-  <section id="comentarios" class="comments-box card" aria-label="Comentarios">
-    <h2 class="mono section-title" style="margin-bottom:.9rem"><span aria-hidden="true">$ tail -f</span> comentarios</h2>
+  <section id="comentarios" class="comments-box card" data-i18n-aria="a.comentarios">
+    <h2 class="mono section-title" style="margin-bottom:.9rem"><span aria-hidden="true">$ tail -f</span> <span data-i18n="cm.title">comentarios</span></h2>
     <div id="waline"></div>
-    <p class="muted-note">Cargando comentarios&hellip; <noscript>(se necesitan JavaScript y acceso al servidor de comentarios)</noscript></p>
+    <p class="muted-note"><span data-i18n="cm.loading">Cargando comentarios&hellip;</span> <noscript>(se necesitan JavaScript y acceso al servidor de comentarios)</noscript></p>
   </section>
 </section>
-<nav class="container post-nav mono" aria-label="Volver">
+<nav class="container post-nav mono" data-i18n-aria="a.volver">
   <a href="/blog/">&larr; cd ../</a>
 </nav>
 </main>
   <footer class="site-footer">
     <div class="container footer-inner mono">
       <span>&copy; 2026 Jos&eacute; Luis S&aacute;nchez Warten</span>
-      <span class="footer-meta"><a href="/rss.xml">rss</a> &middot; build est&aacute;tica &middot; 0 trackers</span>
+      <span class="footer-meta"><a href="/rss.xml">rss</a> &middot; <span data-i18n="foot.static">build est&aacute;tica</span> &middot; 0 trackers</span>
       <a class="kofi-footer" href="https://ko-fi.com/jlswarten" rel="noopener" target="_blank">&#9749; ko-fi</a>
     </div>
   </footer>
-  <script src="/app.js?v=12" defer></script>
+  <script src="/app.js?v=18" defer></script>
 </body>
 </html>

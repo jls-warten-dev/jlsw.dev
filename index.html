@@ -66,8 +66,8 @@
  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
 
  <header class="site-header">
- <nav class="nav container" aria-label="Principal">
- <a class="brand" href="/" aria-label="jlsw.dev, ir al inicio">
+ <nav class="nav container" data-i18n-aria="a.principal">
+ <a class="brand" href="/" data-i18n-aria="a.brand">
  <img class="brand-logo brand-logo-dark" src="/img/logo-blanco.png?v=2" alt="&gt;_ joseluis - jlsw.dev" width="134" height="24">
  <img class="brand-logo brand-logo-light" src="/img/logo-negro.png?v=2" alt="" aria-hidden="true" width="134" height="24">
  </a>
@@ -78,18 +78,18 @@
  <a href="#certificaciones">Certificaciones</a>
  <a href="#sobre-mi">Sobre mí</a>
  <a href="#contacto">Contacto</a>
- <button id="lang-toggle" class="btn-ghost mono" type="button" aria-label="Cambiar idioma">EN</button>
- <button id="theme-toggle" class="btn-ghost" type="button" aria-label="Cambiar tema">◐</button>
+ <button id="lang-toggle" class="btn-ghost mono" type="button" data-i18n-aria="a.lang">EN</button>
+ <button id="theme-toggle" class="btn-ghost" type="button" data-i18n-aria="a.theme">◐</button>
  </div>
- <button id="nav-toggle" class="btn-ghost nav-burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">☰</button>
+ <button id="nav-toggle" class="btn-ghost nav-burger" type="button" data-i18n-aria="a.menu" aria-expanded="false" aria-controls="nav-links">☰</button>
  </nav>
  </header>
 
  <main id="main">
  <!-- HERO -->
- <section class="hero container" aria-label="Presentación">
+ <section class="hero container" data-i18n-aria="a.hero">
  <h1 class="sr-only" data-i18n="heroH1">José Luis Sánchez Warten, Programador Python y Frappe</h1>
- <div class="terminal" role="img" aria-label="Terminal mostrando presentación de José Luis">
+ <div class="terminal" role="img" data-i18n-aria="a.term">
  <div class="terminal-bar" aria-hidden="true">
  <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
  <span class="terminal-title mono">jose@homelab: ~</span>
@@ -108,7 +108,7 @@
 
  <!-- 01 PROYECTOS -->
  <section id="proyectos" class="container section">
- <h2 class="section-title mono"><span aria-hidden="true">$ ls</span> proyectos/</h2>
+ <h2 class="section-title mono"><span aria-hidden="true">$ ls</span> <span data-i18n="sec.projects">proyectos/</span></h2>
  <div class="projects-grid">
  <article class="card project-card">
  <header class="card-head">
@@ -119,13 +119,13 @@
  API REST y cero plugins de terceros. Gestionado por una IA sarcástica y brutalista.</p>
  <div class="shot-row">
  <button class="shot-btn" type="button" data-full="/img/shots/todomal-home.webp?v=1" data-key="shots.todomalHome">
- <img class="shot-img" src="/img/shots/todomal-home-thumb.webp?v=1" alt="todomal.es, portada" width="800" height="500" loading="lazy" decoding="async">
+ <img class="shot-img" src="/img/shots/todomal-home-thumb.webp?v=1" alt="todomal.es, portada" data-i18n-alt="alt.todomalHome" width="800" height="500" loading="lazy" decoding="async">
  </button>
  <button class="shot-btn" type="button" data-full="/img/shots/todomal-post.webp?v=1" data-key="shots.todomalPost">
- <img class="shot-img" src="/img/shots/todomal-post-thumb.webp?v=1" alt="todomal.es, artículo con comentarios" width="800" height="500" loading="lazy" decoding="async">
+ <img class="shot-img" src="/img/shots/todomal-post-thumb.webp?v=1" alt="todomal.es, artículo con comentarios" data-i18n-alt="alt.todomalPost" width="800" height="500" loading="lazy" decoding="async">
  </button>
  </div>
- <ul class="tags" aria-label="Tecnologías">
+ <ul class="tags" data-i18n-aria="a.tags">
  <li>Frappe</li><li>Python</li><li>Vue</li><li>REST API</li>
  </ul>
  <footer class="card-foot"><a class="link-ext" href="https://todomal.es" data-i18n="foot.visit">Visitar sitio</a></footer>
@@ -140,13 +140,13 @@
  exposiciones y área de clientes, SPA sobre Frappe con Vue, instalable como PWA.</p>
  <div class="shot-row">
  <button class="shot-btn" type="button" data-full="/img/shots/tfv-home.webp?v=2" data-key="shots.tfvHome">
- <img class="shot-img" src="/img/shots/tfv-home-thumb.webp?v=2" alt="tamarafotoveterinaria.es, portada con portfolio" width="800" height="500" loading="lazy" decoding="async">
+ <img class="shot-img" src="/img/shots/tfv-home-thumb.webp?v=2" alt="tamarafotoveterinaria.es, portada con portfolio" data-i18n-alt="alt.tfvHome" width="800" height="500" loading="lazy" decoding="async">
  </button>
  <button class="shot-btn" type="button" data-full="/img/shots/tfv-portfolio.webp?v=1" data-key="shots.tfvPortfolio">
- <img class="shot-img" src="/img/shots/tfv-portfolio-thumb.webp?v=1" alt="tamarafotoveterinaria.es, galería del portfolio" width="800" height="500" loading="lazy" decoding="async">
+ <img class="shot-img" src="/img/shots/tfv-portfolio-thumb.webp?v=1" alt="tamarafotoveterinaria.es, galería del portfolio" data-i18n-alt="alt.tfvPortfolio" width="800" height="500" loading="lazy" decoding="async">
  </button>
  </div>
- <ul class="tags" aria-label="Tecnologías">
+ <ul class="tags" data-i18n-aria="a.tags">
  <li>Frappe</li><li>Vue</li><li>PWA</li>
  </ul>
  <footer class="card-foot"><a class="link-ext" href="https://tamarafotoveterinaria.es" data-i18n="foot.visit">Visitar sitio</a></footer>
@@ -161,13 +161,13 @@
  planificador semanal y seguimiento de síntomas para consulta profesional.</p>
  <div class="shot-row">
  <button class="shot-btn" type="button" data-full="/img/shots/dino-calendar.webp?v=1" data-key="shots.dinoCalendar">
- <img class="shot-img" src="/img/shots/dino-calendar-thumb.webp?v=1" alt="DinoDieta, planificador semanal en modo oscuro" width="800" height="500" loading="lazy" decoding="async">
+ <img class="shot-img" src="/img/shots/dino-calendar-thumb.webp?v=1" alt="DinoDieta, planificador semanal en modo oscuro" data-i18n-alt="alt.dinoCalendar" width="800" height="500" loading="lazy" decoding="async">
  </button>
  <button class="shot-btn" type="button" data-full="/img/shots/dino-recipes.webp?v=1" data-key="shots.dinoRecipes">
- <img class="shot-img" src="/img/shots/dino-recipes-thumb.webp?v=1" alt="DinoDieta, buscador de recetas en modo claro" width="800" height="500" loading="lazy" decoding="async">
+ <img class="shot-img" src="/img/shots/dino-recipes-thumb.webp?v=1" alt="DinoDieta, buscador de recetas en modo claro" data-i18n-alt="alt.dinoRecipes" width="800" height="500" loading="lazy" decoding="async">
  </button>
  </div>
- <ul class="tags" aria-label="Tecnologías">
+ <ul class="tags" data-i18n-aria="a.tags">
  <li>Frappe</li><li>Python</li><li>ERPNext</li><li>Vue</li>
  </ul>
  </article>
@@ -179,7 +179,7 @@
  </header>
  <p data-i18n="p.homelab">Dos servidores con Docker: backups automatizados, media server, automatización
  de flujos con n8n y un asistente de IA autoalojado. Todo documentado.</p>
- <ul class="tags" aria-label="Tecnologías">
+ <ul class="tags" data-i18n-aria="a.tags">
  <li>Docker</li><li>Linux</li><li>Bash</li><li>n8n</li>
  </ul>
  </article>
@@ -193,13 +193,13 @@
  a un tamaño exacto en KB. Sin conexión, con marca de agua, redimensionado, ZIPs e informes.</p>
  <div class="shot-row">
  <button class="shot-btn" type="button" data-full="/img/shots/alixeira-run.webp?v=1" data-key="shots.alixeiraRun">
- <img class="shot-img" src="/img/shots/alixeira-run-thumb.webp?v=1" alt="Alixeira, ventana de proceso con log y estadísticas" width="800" height="569" loading="lazy" decoding="async">
+ <img class="shot-img" src="/img/shots/alixeira-run-thumb.webp?v=1" alt="Alixeira, ventana de proceso con log y estadísticas" data-i18n-alt="alt.alixeiraRun" width="800" height="569" loading="lazy" decoding="async">
  </button>
  <button class="shot-btn" type="button" data-full="/img/shots/alixeira-config.webp?v=1" data-key="shots.alixeiraConfig">
- <img class="shot-img" src="/img/shots/alixeira-config-thumb.webp?v=1" alt="Alixeira, pestaña de configuración" width="800" height="569" loading="lazy" decoding="async">
+ <img class="shot-img" src="/img/shots/alixeira-config-thumb.webp?v=1" alt="Alixeira, pestaña de configuración" data-i18n-alt="alt.alixeiraConfig" width="800" height="569" loading="lazy" decoding="async">
  </button>
  </div>
- <ul class="tags" aria-label="Tecnologías">
+ <ul class="tags" data-i18n-aria="a.tags">
  <li>Python</li><li>WebP/JPEG</li><li>Offline</li>
  </ul>
  <footer class="card-foot card-links">
@@ -242,7 +242,7 @@
  <section id="certificaciones" class="container section">
  <details class="cert-details" id="cert-details" open>
  <summary class="cert-summary">
- <h2 class="section-title mono"><span aria-hidden="true">$ ls</span> certificaciones/ <span class="cert-count mono">(8)</span><span class="cert-caret mono" aria-hidden="true">▸</span></h2>
+ <h2 class="section-title mono"><span aria-hidden="true">$ ls</span> <span data-i18n="sec.certs">certificaciones/</span> <span class="cert-count mono">(8)</span><span class="cert-caret mono" aria-hidden="true">▸</span></h2>
  </summary>
  <div class="cert-grid">
   <article class="card cert-card">
@@ -324,7 +324,7 @@
 
  <!-- 05 CONTACTO -->
  <section id="contacto" class="container section">
- <h2 class="section-title mono"><span aria-hidden="true">$ cat</span> contacto.txt</h2>
+ <h2 class="section-title mono"><span aria-hidden="true">$ cat</span> <span data-i18n="sec.contact">contacto.txt</span></h2>
  <div class="contact-box card">
  <p class="contact-line mono"><span class="prompt-char">$</span> echo <a href="mailto:info@jlsw.dev">info@jlsw.dev</a></p>
  <p class="contact-line mono"><span class="prompt-char">$</span> open <a href="https://www.linkedin.com/in/jose-luis-s%C3%A1nchez-warten-85a374254/" rel="noopener" target="_blank">linkedin</a> · <a href="https://github.com/jls-warten-dev" rel="noopener" target="_blank">github</a></p>
@@ -346,6 +346,6 @@
  <p class="lb-cap mono" aria-live="polite"></p>
  </div>
 
- <script src="/app.js?v=17" defer></script>
+ <script src="/app.js?v=18" defer></script>
 </body>
 </html>

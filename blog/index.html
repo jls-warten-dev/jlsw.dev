@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog — José Luis Sánchez Warten</title>
+  <title>Blog | José Luis Sánchez Warten</title>
   <meta name="description" content="Artículos sobre Python, Frappe, homelab y desarrollo.">
   <link rel="canonical" href="https://jlsw.dev/blog/">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Blog — José Luis Sánchez Warten">
+  <meta property="og:title" content="Blog | José Luis Sánchez Warten">
   <meta property="og:description" content="Artículos sobre Python, Frappe, homelab y desarrollo.">
   <meta property="og:image" content="https://jlsw.dev/og-cover.png?v=2">
   <meta name="twitter:card" content="summary_large_image">
@@ -29,14 +29,14 @@
     html{background:var(--bg);color-scheme:dark}
     html[data-theme="light"]{color-scheme:light}
   </style>
-  <link rel="stylesheet" href="/styles.css?v=7">
+  <link rel="stylesheet" href="/styles.css?v=10">
 </head>
 <body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
   <header class="site-header">
-    <nav class="nav container" aria-label="Principal">
-      <a class="brand" href="/" aria-label="jlsw.dev — inicio">
-        <img class="brand-logo brand-logo-dark" src="/img/logo-blanco.png?v=2" alt="&gt;_ joseluis — jlsw.dev" width="134" height="24">
+    <nav class="nav container" data-i18n-aria="a.principal">
+      <a class="brand" href="/" data-i18n-aria="a.brand">
+        <img class="brand-logo brand-logo-dark" src="/img/logo-blanco.png?v=2" alt="&gt;_ joseluis - jlsw.dev" width="134" height="24">
         <img class="brand-logo brand-logo-light" src="/img/logo-negro.png?v=2" alt="" aria-hidden="true" width="134" height="24">
       </a>
       <div class="nav-links" id="nav-links">
@@ -44,9 +44,10 @@
         <a href="/blog/">Blog</a>
         <a href="/#stack">Stack</a>
         <a href="/#contacto">Contacto</a>
-        <button id="theme-toggle" class="btn-ghost" type="button" aria-label="Cambiar tema">&#9684;</button>
+        <button id="lang-toggle" class="btn-ghost mono" type="button" data-i18n-aria="a.lang">EN</button>
+        <button id="theme-toggle" class="btn-ghost" type="button" data-i18n-aria="a.theme">&#9684;</button>
       </div>
-      <button id="nav-toggle" class="btn-ghost nav-burger" type="button" aria-label="Abrir men&uacute;" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+      <button id="nav-toggle" class="btn-ghost nav-burger" type="button" data-i18n-aria="a.menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
     </nav>
   </header>
   <main id="main">
@@ -54,26 +55,34 @@
   <h1 class="section-title mono"><span aria-hidden="true">$ ls -t</span> blog/</h1>
   <ul class="post-list">
     <li class="card post-row">
-      <a class="post-row-link" href="/blog/el-googlebot-que-no-era-google">
+      <a class="post-row-link" href="/blog/commodore-historia.html">
+        <span class="mono post-meta">$ cat blog/commodore-historia.md</span>
+        <h2 class="post-title-sm" data-i18n="bl.t1">Commodore: la empresa que vendió 17 millones de ordenadores y murió sin enterarse</h2>
+        <p class="post-excerpt" data-i18n="bl.e1">Empecé con un Commodore 64 y seguí con un Amiga 500. Esta es la historia real de la empresa que los hizo: un superviviente del Holocausto, un imperio de chips y una quiebra que llegó por no mirar hacia dónde iba el mercado.</p>
+        <span class="mono post-date">20 Sep 2026</span>
+      </a>
+    </li>
+    <li class="card post-row">
+      <a class="post-row-link" href="/blog/el-googlebot-que-no-era-google.html">
         <span class="mono post-meta">$ cat blog/el-googlebot-que-no-era-google.md</span>
-        <h2 class="post-title-sm">El Googlebot que no era Google: dos semanas de registros</h2>
-        <p class="post-excerpt">De cada cinco peticiones con nombre de robot de IA en mi servidor, cuatro venían de la misma máquina cambiando de identidad.</p>
+        <h2 class="post-title-sm" data-i18n="bl.t2">El Googlebot que no era Google: dos semanas de registros</h2>
+        <p class="post-excerpt" data-i18n="bl.e2">De cada cinco peticiones con nombre de robot de IA en mi servidor, cuatro venían de la misma máquina cambiando de identidad.</p>
         <span class="mono post-date">13 Sep 2026</span>
       </a>
     </li>
     <li class="card post-row">
-      <a class="post-row-link" href="/blog/por-que-hice-alixeira">
+      <a class="post-row-link" href="/blog/por-que-hice-alixeira.html">
         <span class="mono post-meta">$ cat blog/por-que-hice-alixeira.md</span>
-        <h2 class="post-title-sm">2.000 fotos después: por qué me hice mi propio conversor de imágenes</h2>
-        <p class="post-excerpt">Harto de depender de webs online para optimizar, recortar y marcar fotos al por mayor, escribí mi propia herramienta en Python. Se llama Alixeira — aligerar, en gallego — y lleva meses conmigo.</p>
+        <h2 class="post-title-sm" data-i18n="bl.t3">2.000 fotos después: por qué me hice mi propio conversor de imágenes</h2>
+        <p class="post-excerpt" data-i18n="bl.e3">Harto de depender de webs online para optimizar, recortar y marcar fotos al por mayor, escribí mi propia herramienta en Python. Se llama Alixeira (aligerar, en gallego) y lleva meses conmigo.</p>
         <span class="mono post-date">25 Aug 2026</span>
       </a>
     </li>
     <li class="card post-row">
-      <a class="post-row-link" href="/blog/hola-mundo">
+      <a class="post-row-link" href="/blog/hola-mundo.html">
         <span class="mono post-meta">$ cat blog/hola-mundo.md</span>
-        <h2 class="post-title-sm">Este blog también es código: cómo está hecho</h2>
-        <p class="post-excerpt">Sin WordPress, sin CMS, sin base de datos: Markdown, un script de Python de 200 líneas y nginx. Así funciona este blog.</p>
+        <h2 class="post-title-sm" data-i18n="bl.t4">Este blog también es código: cómo está hecho</h2>
+        <p class="post-excerpt" data-i18n="bl.e4">Sin WordPress, sin CMS, sin base de datos: Markdown, un script de Python de 200 líneas y nginx. Así funciona este blog.</p>
         <span class="mono post-date">23 Aug 2026</span>
       </a>
     </li>
@@ -83,10 +92,10 @@
   <footer class="site-footer">
     <div class="container footer-inner mono">
       <span>&copy; 2026 Jos&eacute; Luis S&aacute;nchez Warten</span>
-      <span class="footer-meta"><a href="/rss.xml">rss</a> &middot; build est&aacute;tica &middot; 0 trackers</span>
+      <span class="footer-meta"><a href="/rss.xml">rss</a> &middot; <span data-i18n="foot.static">build est&aacute;tica</span> &middot; 0 trackers</span>
       <a class="kofi-footer" href="https://ko-fi.com/jlswarten" rel="noopener" target="_blank">&#9749; ko-fi</a>
     </div>
   </footer>
-  <script src="/app.js?v=12" defer></script>
+  <script src="/app.js?v=18" defer></script>
 </body>
 </html>
