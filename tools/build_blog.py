@@ -213,6 +213,8 @@ def shell(title: str, desc: str, canonical: str, jsonld: str, content: str,
         <a href="/#proyectos">Proyectos</a>
         <a href="/blog/">Blog</a>
         <a href="/#stack">Stack</a>
+        <a href="/#certificaciones">Certificaciones</a>
+        <a href="/#sobre-mi">Sobre mí</a>
         <a href="/#contacto">Contacto</a>
         <button id="lang-toggle" class="btn-ghost mono" type="button" data-i18n-aria="a.lang">EN</button>
         <button id="theme-toggle" class="btn-ghost" type="button" data-i18n-aria="a.theme">&#9684;</button>
