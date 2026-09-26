@@ -59,8 +59,14 @@ def parse_post(path: Path) -> dict:
     }
 
 
-def md_to_html(md: str) -> str:
-    """Convert the Markdown subset used by the posts. No deps."""
+def md_to_html(md: str, ref_suffix: str = "") -> str:
+    """Convert the Markdown subset used by the posts. No deps.
+
+    Las listas numeradas (sección de referencias) se convierten en párrafos
+    con ancla ``id="ref-N"`` para que las citas del cuerpo puedan enlazarlas.
+    ``ref_suffix`` se añade al id en la versión en inglés (que va en su propio
+    bloque, así se evitan ids duplicados en la misma página).
+    """
     # fenced code blocks first (protect from inline transforms)
     code_blocks: list[str] = []
 
@@ -119,6 +125,14 @@ def md_to_html(md: str) -> str:
                 out.append("<ul>")
                 in_list = True
             out.append(f"<li>{_inline(line[2:])}</li>")
+        elif (m_ref := re.match(r"^(\d+)\.\s+(.*)$", line)):
+            # Lista numerada -> párrafo con ancla para las citas [N](#ref-N)
+            _flush_para()
+            if in_list:
+                out.append("</ul>"); in_list = False
+            num, cuerpo = m_ref.group(1), m_ref.group(2)
+            out.append(f'<p class="ref-item" id="ref-{num}{ref_suffix}">'
+                       f"{num}. {_inline(cuerpo)}</p>")
         else:
             if in_list:
                 out.append("</ul>"); in_list = False
@@ -267,7 +281,7 @@ def post_page(p: dict, body_html: str) -> str:
   </p>"""
         bloque_en = f"""
   <div class="prose" id="en" lang="en" data-lang-block="en" hidden>
-{md_to_html(p['body_en_md'])}
+{md_to_html(p['body_en_md'], ref_suffix='-en')}
   </div>"""
     content = f"""
 <section class="container section post-article">
