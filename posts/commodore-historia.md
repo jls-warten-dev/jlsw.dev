@@ -61,11 +61,11 @@ Y aquí es donde la historia se vuelve seria, porque **no hay un número único 
 
 ## El Amiga: cuando llegó la potencia de verdad
 
-En 1985 Commodore dio un salto enorme con el **Amiga**, presentado el 23 de julio de ese año.[9](#ref-9) Su sistema operativo, AmigaOS, fue **uno de los primeros sistemas de consumo para ordenadores personales en implementar multitarea apropiativa**, es decir, hacer varias cosas a la vez de verdad y no por turnos amables.[9](#ref-9)
+En 1985 Commodore dio un salto enorme con el **Amiga**, presentado el 23 de julio de ese año.[9](#ref-9) Su sistema operativo, AmigaOS, fue **uno de los primeros sistemas de consumo para ordenadores personales en implementar multitarea preventiva**, es decir, hacer varias cosas a la vez de verdad y no por turnos amables.[9](#ref-9)
 
 ![Amiga 500 con su monitor Commodore 1084S y una unidad de disquete externa](/img/commodore/amiga500.webp "Un Amiga 500 con su monitor 1084S. Foto: Bill Bertram, CC BY-SA 2.5.")
 
-De toda la familia Amiga, el más vendido fue el **Amiga 500**, lanzado en 1987: 2,6 millones de unidades, a 699 dólares.[10](#ref-10) Llevaba el mismo procesador Motorola 68000 y los mismos coprocesadores de gráficos y sonido que el Amiga 1000, en una caja más pequeña, y fue **el primer ordenador doméstico capaz de hacer multitarea**.[10](#ref-10) Los alemanes, que de esto sabían un rato, se llevaron por sí solos 1.160.500 unidades.[10](#ref-10)
+De toda la familia Amiga, el más vendido fue el **Amiga 500**, lanzado en 1987: 2,6 millones de unidades, a 699 dólares.[10](#ref-10) Llevaba el mismo procesador Motorola 68000 y los mismos coprocesadores de gráficos y sonido que el Amiga 1000, en una caja más pequeña, y fue **el ordenador que llevó la multitarea al público doméstico**.[10](#ref-10) Los alemanes, que de esto sabían un rato, se llevaron por sí solos 1.160.500 unidades.[10](#ref-10)
 
 ## El final: venderlo todo un viernes por la tarde
 
@@ -81,7 +81,7 @@ Los activos acabaron vendidos: Escom pagó 14 millones de dólares por ellos.[1]
 
 La lección no es "qué pena que quebraran". La lección es más incómoda: Commodore tuvo en sus manos la máquina correcta, el precio correcto y la tecnología correcta, y aun así perdió. Tenía la fábrica, tenía los chips y tenía el mercado. Lo que no tuvo fue la capacidad de cambiar cuando el mercado cambió.
 
-Yo no sabía nada de esto cuando metía un disco en el Amiga 500. Solo sabía que aquello era divertido. Pero ahora, mirando atrás, me doy cuenta de que aprendí informática en una máquina construida por una empresa que iba a desaparecer en pocos años, en un país que no era el mío, con chips fabricados por una compañía que su propio jefe había comprado a proveedores para no volver a depender de nadie.
+Yo no sabía nada de esto cuando metía un disco en el Amiga 500. Solo sabía que aquello era divertido. Pero ahora, mirando atrás, me doy cuenta de que aprendí informática en una máquina construida por una empresa que iba a desaparecer en pocos años, con chips fabricados por una compañía que su propio jefe había comprado a proveedores para no volver a depender de nadie.
 
 Los ordenadores se apagan. La historia que llevan dentro, no.
 
@@ -128,7 +128,7 @@ Las fotografías de este artículo son de Wikimedia Commons y se reproducen con 
 
 My first computer was a Commodore 64. Then came an Amiga 500, and with it the best years of my life in front of a screen: games, magazines, 3.5 inch disks you had to look after like gold, and the feeling that that brown box could do anything. I knew nothing about Commodore. I only knew it was **my** computer.
 
-Years later, when I already work with computers to make a living, I started looking into the history of the company that made those two machines. And it turns out to be far more interesting than a product catalogue: it is a story of survival, of trade war and of an ending nobody saw coming.
+Years later, working with computers for a living, I started looking into the history of the company that made those two machines. And it turns out to be far more interesting than a product catalogue: it is a story of survival, of trade war and of an ending nobody saw coming.
 
 ## A man who came out of hell and started a company
 
@@ -184,7 +184,7 @@ In 1985 Commodore took a huge leap with the **Amiga**, presented on 23 July of t
 
 ![Amiga 500 with its Commodore 1084S monitor and an external disk drive](/img/commodore/amiga500.webp "An Amiga 500 with its 1084S monitor. Photo: Bill Bertram, CC BY-SA 2.5.")
 
-Of the whole Amiga family, the best-selling was the **Amiga 500**, launched in 1987: 2.6 million units, at 699 dollars.[10](#ref-10-en) It carried the same Motorola 68000 processor and the same graphics and sound coprocessors as the Amiga 1000, in a smaller case, and was **the first home computer capable of multitasking**.[10](#ref-10-en) The Germans, who knew a thing or two about this, took 1,160,500 units by themselves.[10](#ref-10-en)
+Of the whole Amiga family, the best-selling was the **Amiga 500**, launched in 1987: 2.6 million units, at 699 dollars.[10](#ref-10-en) It carried the same Motorola 68000 processor and the same graphics and sound coprocessors as the Amiga 1000, in a smaller case, and was **the computer that brought multitasking to the home**.[10](#ref-10-en) The Germans, who knew a thing or two about this, took 1,160,500 units by themselves.[10](#ref-10-en)
 
 ## The end: selling everything on a Friday afternoon
 
@@ -200,7 +200,7 @@ The assets ended up sold: Escom paid 14 million dollars for them.[1](#ref-1-en) 
 
 The lesson is not "what a shame they went bankrupt". The lesson is more uncomfortable: Commodore held in its hands the right machine, the right price and the right technology, and it still lost. It had the factory, it had the chips and it had the market. What it did not have was the ability to change when the market changed.
 
-I knew nothing about any of this when I put a disk into the Amiga 500. I only knew it was fun. But now, looking back, I realise I learned computing on a machine built by a company that was going to disappear within a few years, in a country that was not mine, with chips made by a company its own boss had bought from his suppliers so as never to depend on anyone again.
+I knew nothing about any of this when I put a disk into the Amiga 500. I only knew it was fun. But now, looking back, I realise I learned computing on a machine built by a company that was going to disappear within a few years, with chips made by a company its own boss had bought from his suppliers so as never to depend on anyone again.
 
 Computers switch off. The story inside them does not.
 
