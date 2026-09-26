@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel>
-  <title>jlsw.dev — blog</title>
+  <title>jlsw.dev - blog</title>
   <link>https://jlsw.dev/blog/</link>
   <description>Python, Frappe/ERPNext, homelab y desarrollo web</description>
   <language>es</language>
+    <item>
+      <title>Commodore: la empresa que vendió 17 millones de ordenadores y murió sin enterarse</title>
+      <link>https://jlsw.dev/blog/commodore-historia.html</link>
+      <guid isPermaLink="true">https://jlsw.dev/blog/commodore-historia.html</guid>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 +0000</pubDate>
+      <description>Empecé con un Commodore 64 y seguí con un Amiga 500. Esta es la historia real de la empresa que los hizo: un superviviente del Holocausto, un imperio de chips y una quiebra que llegó por no mirar hacia dónde iba el mercado.</description>
+    </item>
     <item>
       <title>El Googlebot que no era Google: dos semanas de registros</title>
       <link>https://jlsw.dev/blog/el-googlebot-que-no-era-google.html</link>
@@ -16,7 +23,7 @@
       <link>https://jlsw.dev/blog/por-que-hice-alixeira.html</link>
       <guid isPermaLink="true">https://jlsw.dev/blog/por-que-hice-alixeira.html</guid>
       <pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate>
-      <description>Harto de depender de webs online para optimizar, recortar y marcar fotos al por mayor, escribí mi propia herramienta en Python. Se llama Alixeira — aligerar, en gallego — y lleva meses conmigo.</description>
+      <description>Harto de depender de webs online para optimizar, recortar y marcar fotos al por mayor, escribí mi propia herramienta en Python. Se llama Alixeira (aligerar, en gallego) y lleva meses conmigo.</description>
     </item>
     <item>
       <title>Este blog también es código: cómo está hecho</title>
