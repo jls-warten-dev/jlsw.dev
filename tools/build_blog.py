@@ -194,6 +194,8 @@ def shell(title: str, desc: str, canonical: str, jsonld: str, content: str,
   <title>{html.escape(title)}</title>
   <meta name="description" content="{html.escape(desc)}">
   <link rel="canonical" href="{canonical}">
+  <meta property="og:url" content="{canonical}">
+  <meta property="fb:app_id" content="983666218077615">
   <meta property="og:type" content="article">
   <meta property="og:title" content="{html.escape(title)}">
   <meta property="og:description" content="{html.escape(desc)}">
