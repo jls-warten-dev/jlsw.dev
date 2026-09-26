@@ -153,6 +153,10 @@ def _inline(s: str) -> str:
     s = re.sub(r"`([^`]+)`", r"<code class='inline-code'>\1</code>", s)
     s = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", s)
     s = re.sub(r"\*([^*]+)\*", r"<em>\1</em>", s)
+    # Cita numerada a la lista de referencias: conserva los corchetes a la
+    # vista ([14]) para que se lea como cita y no como un número suelto.
+    s = re.sub(r"\[(\d{1,2})\]\(#(ref-[\w-]+)\)",
+               r"<a href='#\2' class='ref-cite'>[\1]</a>", s)
     s = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r"<a href='\2' rel='noopener'>\1</a>", s)
     return s
 
