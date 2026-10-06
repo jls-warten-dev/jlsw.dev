@@ -54,9 +54,74 @@ def parse_post(path: Path) -> dict:
         "excerpt": fm.get("excerpt", ""),
         "excerpt_en": fm.get("excerpt_en", ""),
         "tags": [t.strip() for t in fm.get("tags", "").split(",") if t.strip()],
+        # Serie editorial (vacío => post suelto, sin barra anterior/siguiente).
+        "serie": fm.get("serie", "").strip(),
+        # Fecha de última actualización; si no viene, vale la de publicación.
+        "updated": fm.get("updated", "").strip(),
         "body_md": body_es,
         "body_en_md": body_en,
     }
+
+
+# Etiquetas de cada serie, en los dos idiomas. La clave es el valor de `serie:`
+# en el front-matter; añadir una serie nueva es añadir una entrada aquí.
+SERIES_LABELS = {
+    "historia-informatica": {
+        "es": "serie: historias de la informática",
+        "en": "series: stories from the history of computing",
+    },
+}
+
+
+def serie_nav(posts: list[dict], actual: dict) -> str:
+    """Barra '← anterior | serie | siguiente →' de los posts que son serie.
+
+    El orden es cronológico entre los miembros publicados (los que están en
+    ``posts``), así que un borrador publicado después entra solo. Un post sin
+    `serie:` o con un único miembro no lleva barra.
+    """
+    serie = actual.get("serie") or ""
+    if not serie:
+        return ""
+    grupo = sorted((q for q in posts if q.get("serie") == serie),
+                   key=lambda q: q["date"])
+    if len(grupo) < 2:
+        return ""
+    idx = next((i for i, q in enumerate(grupo) if q["slug"] == actual["slug"]), None)
+    if idx is None:
+        return ""
+
+    def _lado(q: dict | None, lado: str) -> str:
+        if not q:
+            return '<span class="serie-slot"></span>'
+        if lado == "prev":
+            es, en = "&larr; anterior", "&larr; previous"
+        else:
+            es, en = "siguiente &rarr;", "next &rarr;"
+        href = f"/blog/{q['slug']}.html"
+        t_es = html.escape(q["title"])
+        t_en = html.escape(q.get("title_en") or q["title"])
+        return (
+            f'<span class="serie-slot serie-{lado}">'
+            f'<a class="serie-link" data-i18n-show="es" href="{href}">{es}: {t_es}</a>'
+            f'<a class="serie-link" data-i18n-show="en" lang="en" hidden href="{href}">{en}: {t_en}</a>'
+            f"</span>"
+        )
+
+    etiqueta = SERIES_LABELS.get(serie)
+    if etiqueta:
+        nombre = (
+            '<span class="serie-slot serie-name">'
+            f'<a data-i18n-show="es" href="/blog/">{html.escape(etiqueta["es"])}</a>'
+            f'<a data-i18n-show="en" lang="en" hidden href="/blog/">{html.escape(etiqueta["en"])}</a>'
+            "</span>"
+        )
+    else:
+        nombre = '<span class="serie-slot serie-name"></span>'
+
+    prev = _lado(grupo[idx - 1] if idx > 0 else None, "prev")
+    sig = _lado(grupo[idx + 1] if idx + 1 < len(grupo) else None, "next")
+    return f'\n  <span class="serie-nav">{prev}{nombre}{sig}</span>'
 
 
 def md_to_html(md: str, ref_suffix: str = "") -> str:
@@ -219,7 +284,7 @@ def shell(title: str, desc: str, canonical: str, jsonld: str, content: str,
     html{{background:var(--bg);color-scheme:dark}}
     html[data-theme="light"]{{color-scheme:light}}
   </style>
-  <link rel="stylesheet" href="/styles.css?v=10">
+  <link rel="stylesheet" href="/styles.css?v=11">
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
@@ -261,16 +326,22 @@ def theme_bootstrap() -> str:
     return ""
 
 
-def post_page(p: dict, body_html: str) -> str:
+def post_page(p: dict, body_html: str, serie_html: str = "") -> str:
     date_iso = p["date"]
     date_fmt = datetime.strptime(date_iso, "%Y-%m-%d").strftime("%d %b %Y")
+    date_modified = p.get("updated") or date_iso
+    og_url, og_alt = og_for_post(p)
     jsonld = json.dumps({
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": p["title"],
         "datePublished": date_iso,
+        "dateModified": date_modified,
+        "description": p["excerpt"],
+        "image": og_url,
         "author": {"@type": "Person", "name": "José Luis Sánchez Warten", "url": SITE_URL + "/"},
         "url": f"{SITE_URL}/blog/{p['slug']}.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": f"{SITE_URL}/blog/{p['slug']}.html"},
     }, ensure_ascii=False)
     tags = "".join(f'<li>{html.escape(t)}</li>' for t in p["tags"])
     # Versión inglesa: título propio y bloque completo, con su ancla para enlazar
@@ -307,11 +378,11 @@ def post_page(p: dict, body_html: str) -> str:
   </section>
 </section>
 <nav class="container post-nav mono" data-i18n-aria="a.volver">
-  <a href="/blog/">&larr; cd ../</a>
+  <a href="/blog/">&larr; cd ../</a>{serie_html}
 </nav>
 """
     return shell(p["title"], p["excerpt"], f"{SITE_URL}/blog/{p['slug']}.html", jsonld,
-                 content, og_block(*og_for_post(p)))
+                 content, og_block(og_url, og_alt))
 
 
 def _bilingual(tag: str, cls: str, es: str, en: str) -> str:
@@ -380,7 +451,7 @@ def main() -> int:
     posts = [parse_post(f) for f in sorted(POSTS.glob("*.md"))]
     built = []
     for p in posts:
-        page = post_page(p, md_to_html(p["body_md"]))
+        page = post_page(p, md_to_html(p["body_md"]), serie_nav(posts, p))
         out = BLOG_OUT / f"{p['slug']}.html"
         out.write_text(page, encoding="utf-8")
         built.append(str(out.relative_to(ROOT)))

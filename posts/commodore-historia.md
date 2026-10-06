@@ -4,6 +4,7 @@ title_en: "Commodore: the company that sold 17 million Commodore 64 computers an
 date: 2026-09-20
 excerpt: "Empecé con un Commodore 64 y seguí con un Amiga 500. Esta es la historia real de la empresa que los hizo: un superviviente del Holocausto, un imperio de chips y una quiebra que llegó por no mirar hacia dónde iba el mercado."
 excerpt_en: "I started with a Commodore 64 and moved on to an Amiga 500. This is the real story of the company that made them: a Holocaust survivor, a chip empire and a bankruptcy that came from not watching where the market was going."
+serie: historia-informatica
 tags: historia, retro, commodore
 ---
 

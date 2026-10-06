@@ -2,6 +2,7 @@
 title: "El Spectrum: el ordenador que trajo la informática a casa de los británicos"
 date: 2026-09-28
 excerpt: "Costó 125 libras, tenía teclas de goma y lo vendió una empresa que se hundió tres años después. El ZX Spectrum no fue el mejor ordenador de su época: fue el que más gente pudo comprar."
+serie: historia-informatica
 tags: historia, retro, spectrum
 ---
 

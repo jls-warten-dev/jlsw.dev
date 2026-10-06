@@ -415,6 +415,28 @@ html[data-theme="light"] .badge:not(.badge-alt) {
 .post-nav { padding-block: 2rem 3rem; }
 .post-nav a { color: var(--accent); font-size: .9rem; }
 
+/* Barra de serie: ← anterior | serie | siguiente → */
+.serie-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: .4rem 1.1rem;
+  align-items: baseline;
+  margin-top: .9rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--border);
+  font-size: .85rem;
+}
+.serie-nav .serie-slot { min-width: 0; overflow-wrap: anywhere; }
+.serie-nav .serie-prev { justify-self: start; text-align: left; }
+.serie-nav .serie-name { justify-self: center; text-align: center; }
+.serie-nav .serie-name a { color: var(--muted); text-decoration: none; }
+.serie-nav .serie-next { justify-self: end; text-align: right; }
+@media (max-width: 640px) {
+  .serie-nav { grid-template-columns: 1fr; }
+  .serie-nav .serie-name,
+  .serie-nav .serie-next { justify-self: start; text-align: left; }
+}
+
 /* Stack */
 .stack-groups {
   display: grid;
